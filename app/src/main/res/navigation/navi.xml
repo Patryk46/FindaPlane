@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navi"
+    app:startDestination="@id/menuFragment">
+
+    <fragment
+        android:id="@+id/menuFragment"
+        android:name="com.example.findaplane.fragments.MenuFragment"
+        android:label="fragment_menu"
+        tools:layout="@layout/fragment_menu" >
+        <action
+            android:id="@+id/action_sensors_to_menuFragment"
+            app:destination="@id/menuFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_historyPlanes"
+            app:destination="@id/historyPlanes" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/historyPlanes"
+        android:name="com.example.findaplane.fragments.HistoryPlanes"
+        android:label="fragment_history_planes"
+        tools:layout="@layout/fragment_history_planes" >
+        <action
+            android:id="@+id/action_historyPlanes_to_menuFragment"
+            app:destination="@id/menuFragment" />
+        <action
+            android:id="@+id/action_historyPlanes_to_historyInfo"
+            app:destination="@id/historyInfo" />
+    </fragment>
+    <fragment
+        android:id="@+id/historyInfo"
+        android:name="com.example.findaplane.fragments.HistoryInfo"
+        android:label="fragment_history_info"
+        tools:layout="@layout/fragment_history_info" >
+        <action
+            android:id="@+id/action_historyInfo_to_historyPlanes"
+            app:destination="@id/historyPlanes" />
+    </fragment>
+
+
+</navigation>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navi2"
+    app:startDestination="@id/sensorsFragment">
+
+    <fragment
+        android:id="@+id/sensorsFragment"
+        android:name="com.example.findaplane.fragments.SensorsFragment"
+        android:label="fragment_sensors"
+        tools:layout="@layout/fragment_sensors" >
+        <action
+            android:id="@+id/action_sensorsFragment_to_airplanesNearby"
+            app:destination="@id/airplanesNearby" />
+        <action
+            android:id="@+id/action_sensorsFragment_to_gpsFragment"
+            app:destination="@id/gpsFragment" />
+        <action
+            android:id="@+id/action_sensorsFragment_to_mapsFragment"
+            app:destination="@id/mapsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/airplanesNearby"
+        android:name="com.example.findaplane.fragments.AirplanesNearby"
+        android:label="fragment_airplanes_nearby"
+        tools:layout="@layout/fragment_airplanes_nearby" >
+        <action
+            android:id="@+id/action_airplanesNearby_to_infoFragment"
+            app:destination="@id/infoFragment" />
+        <action
+            android:id="@+id/action_airplanesNearby_to_sensorsFragment"
+            app:destination="@id/sensorsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/infoFragment"
+        android:name="com.example.findaplane.fragments.InfoFragment"
+        android:label="InfoFragment" >
+        <action
+            android:id="@+id/action_infoFragment_to_airplanesNearby"
+            app:destination="@id/airplanesNearby" />
+    </fragment>
+    <fragment
+        android:id="@+id/gpsFragment"
+        android:name="com.example.findaplane.GpsFragment"
+        android:label="fragment_gps"
+        tools:layout="@layout/fragment_gps" />
+    <fragment
+        android:id="@+id/mapsFragment"
+        android:name="com.example.findaplane.fragments.MapsFragment"
+        android:label="fragment_maps"
+        tools:layout="@layout/fragment_maps" />
+</navigation>
