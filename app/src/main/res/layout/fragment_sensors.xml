@@ -14,7 +14,6 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_marginTop="30dp"
-        android:background="#1E40E3"
         android:gravity="center"
         android:text=""
         android:textColor="#0E0B0B"
@@ -33,7 +32,6 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_marginTop="30dp"
-        android:background="#1E40E3"
         android:gravity="center"
         android:text=""
         android:textColor="#0E0B0B"
@@ -61,37 +59,35 @@
         android:id="@+id/imageView2"
         android:layout_width="75dp"
         android:layout_height="75dp"
-        android:layout_marginTop="70dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/kierunek"
-        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:layout_constraintVertical_bias="0.19999999"
         app:srcCompat="@drawable/compas1" />
 
     <Button
         android:id="@+id/finderButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
-        android:text="Find planes"
+        android:text="@string/find_planes"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/kompas"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.71000004" />
 
     <Button
         android:id="@+id/go_lokalizacja"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Lokalizacja"
+        android:text="@string/zaktualizuj_lokalizacj"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.85" />
+        app:layout_constraintVertical_bias="0.79" />
 
     <TextView
         android:id="@+id/tLon"
@@ -121,12 +117,12 @@
         android:id="@+id/go_map"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Mapa"
+        android:text="@string/mapa"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.94" />
+        app:layout_constraintVertical_bias="0.87" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

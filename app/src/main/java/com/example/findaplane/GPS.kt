@@ -39,7 +39,6 @@ class GPS: AppCompatActivity() {
         setContentView(R.layout.fragment_gps)
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
 
-       // fun getCurrentLocation() {
         val tvLatitude = findViewById<TextView>(R.id.lat)
         val tvLongitude = findViewById<TextView>(R.id.lon)
             // checking location permission
@@ -52,8 +51,7 @@ class GPS: AppCompatActivity() {
                 ActivityCompat.requestPermissions(
                     this,
                     arrayOf(Manifest.permission.ACCESS_FINE_LOCATION), LOCATION_PERMISSION_REQ_CODE
-                );
-                //return
+                )
             }
             fusedLocationClient.lastLocation
                 .addOnSuccessListener { location ->

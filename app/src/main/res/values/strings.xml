@@ -5,4 +5,7 @@
     <string name="info">Info</string>
     <string name="wr">Wróć</string>
     <string name="sensory">Sensory</string>
+    <string name="zaktualizuj_lokalizacj">Zaktualizuj lokalizację</string>
+    <string name="find_planes">Find planes</string>
+    <string name="mapa">Mapa</string>
 </resources>

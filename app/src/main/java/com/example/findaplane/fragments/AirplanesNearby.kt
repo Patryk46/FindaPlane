@@ -11,10 +11,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.findaplane.AirplanesNearbyViewModel
-import com.example.findaplane.ListAdapter
-import com.example.findaplane.R
-import com.example.findaplane.Sensors
+import com.example.findaplane.*
 import com.example.findaplane.model.Response
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import kotlin.math.absoluteValue
@@ -53,7 +50,8 @@ class AirplanesNearby : Fragment() {
         }
         val kompas = Sensors.kompas_value.toDouble()
         val kierunek = Sensors.akcelerometr_value.toDouble()
-
+        val latitude = GPS.latitude
+        val longitude = GPS.longitude
         val lamin = 0.0
         val lamax = 0.0
         val lomin = 0.0
@@ -62,7 +60,7 @@ class AirplanesNearby : Fragment() {
         val wartosci = oblicz_wartosci(kompas, kierunek, lamin, lamax, lomin, lomax)
 
         // na jaka odleglosc w kazda strone bedziemy szukac
-        viewModel.postAll(wartosci[0].toDouble(), wartosci[2].toDouble(), wartosci[1].toDouble(), wartosci[3].toDouble())
+        viewModel.postAll(wartosci[0], wartosci[2], wartosci[1], wartosci[3])
 
 
         (view.findViewById<FloatingActionButton>(R.id.backFromAirplanesNearby)).setOnClickListener {
@@ -72,7 +70,7 @@ class AirplanesNearby : Fragment() {
     }
 
         fun oblicz_wartosci(kom: Double, odle: Double, lamin: Double, lamax: Double, lomin: Double, lomax: Double): Array<Double> {
-            var zwracana = arrayOf(lamin, lamax, lomin, lomax)
+            val zwracana = arrayOf(lamin, lamax, lomin, lomax)
             var a = (270 - kom).absoluteValue
 
             val stala = 600000

@@ -33,7 +33,6 @@ class SensorsFragment : Fragment() {
         }
         view.findViewById<Button>(R.id.go_lokalizacja).apply {
             setOnClickListener {
-                //findNavController().navigate(R.id.action_sensorsFragment_to_gpsFragment)
                 val intent2 = Intent(context, GPS::class.java)
                 startActivity(intent2)
             }

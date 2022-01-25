@@ -26,9 +26,6 @@ class MenuFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        //poprzez wcisniecie buttona wchodzimy z menu do AirplanesNearby
-
-
         (view.findViewById<Button>(R.id.go_to_sensor)).setOnClickListener{
 
             val intent = Intent(context, Sensors::class.java)
