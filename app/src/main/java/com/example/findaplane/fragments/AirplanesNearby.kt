@@ -51,15 +51,15 @@ class AirplanesNearby : Fragment() {
         else{
             view.findViewById<TextView>(R.id.textViewBrak).text = "Brak Samolotów"
         }
-        var kompas = Sensors.kompas_value.toDouble()
-        var kierunek = Sensors.akcelerometr_value.toDouble()
+        val kompas = Sensors.kompas_value.toDouble()
+        val kierunek = Sensors.akcelerometr_value.toDouble()
 
-        var lamin = 0.0
-        var lamax = 0.0
-        var lomin = 0.0
-        var lomax = 0.0
+        val lamin = 0.0
+        val lamax = 0.0
+        val lomin = 0.0
+        val lomax = 0.0
 
-        var wartosci = oblicz_wartosci(kompas, kierunek, lamin, lamax, lomin, lomax)
+        val wartosci = oblicz_wartosci(kompas, kierunek, lamin, lamax, lomin, lomax)
 
         // na jaka odleglosc w kazda strone bedziemy szukac
         viewModel.postAll(wartosci[0].toDouble(), wartosci[2].toDouble(), wartosci[1].toDouble(), wartosci[3].toDouble())
@@ -75,7 +75,7 @@ class AirplanesNearby : Fragment() {
             var zwracana = arrayOf(lamin, lamax, lomin, lomax)
             var a = (270 - kom).absoluteValue
 
-            val stala = 8000000
+            val stala = 600000
 
             a = (180 - a).absoluteValue
             zwracana[0] = (a*a*a)/stala
