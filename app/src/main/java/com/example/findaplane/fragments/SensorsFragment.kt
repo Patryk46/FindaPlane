@@ -37,8 +37,8 @@ class SensorsFragment : Fragment() {
                 startActivity(intent2)
             }
         }
-        view.findViewById<TextView>(R.id.tLat).text ="Latitude: " + GPS.latitude.toString()
-        view.findViewById<TextView>(R.id.tLon).text ="Longitude: " + GPS.longitude.toString()
+        //view.findViewById<TextView>(R.id.tLat).text ="Latitude: " + GPS.latitude.toString()
+        //view.findViewById<TextView>(R.id.tLon).text ="Longitude: " + GPS.longitude.toString()
 
         view.findViewById<Button>(R.id.go_map).apply {
             setOnClickListener {

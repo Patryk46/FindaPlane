@@ -26,7 +26,7 @@ class MapsFragment : Fragment() {
 
     private val callback = OnMapReadyCallback { googleMap ->
         val latitude = GPS.latitude
-        val longitude = GPS.longitude
+        val longitude =  GPS.longitude
         val sydney = LatLng(latitude, longitude)
         googleMap.addMarker(MarkerOptions().position(sydney).title("Your position"))
         googleMap.moveCamera(CameraUpdateFactory.newLatLng(sydney))

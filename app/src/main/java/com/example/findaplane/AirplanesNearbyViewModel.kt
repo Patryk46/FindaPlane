@@ -18,15 +18,12 @@ class AirplanesNearbyViewModel:ViewModel(){
 
     var posit: Int = 0
 
-    fun postAll(lamin:Double, lomin:Double, lamax:Double, lomax:Double)
+    fun postAll(lat: Double,lon: Double, lamin:Double, lomin:Double, lamax:Double, lomax:Double)
     {
         viewModelScope.launch {
 
-
-            val lon = GPS.longitude
-            val lat = GPS.latitude
-
-
+            System.out.println(lat)
+            System.out.println(lon)
             val planes= Repository.getAll(lat - lamin,
                lon - lomin,
                lat + lamax,

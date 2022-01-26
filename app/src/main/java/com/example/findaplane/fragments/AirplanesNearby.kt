@@ -50,17 +50,17 @@ class AirplanesNearby : Fragment() {
         }
         val kompas = Sensors.kompas_value.toDouble()
         val kierunek = Sensors.akcelerometr_value.toDouble()
-        val latitude = GPS.latitude
-        val longitude = GPS.longitude
-        val lamin = 0.0
-        val lamax = 0.0
-        val lomin = 0.0
-        val lomax = 0.0
+        //val latitude = GPS.latitude
+        //val longitude = GPS.longitude
+        val lamin = 0.6
+        val lamax = 0.6
+        val lomin = 0.6
+        val lomax = 0.6
 
-        val wartosci = oblicz_wartosci(kompas, kierunek, lamin, lamax, lomin, lomax)
-
+        //val wartosci = przesuniecie(kompas, kierunek, latitude, longitude)
+        //var wartosci = arrayOf(3.2, 5.7)
         // na jaka odleglosc w kazda strone bedziemy szukac
-        viewModel.postAll(wartosci[0], wartosci[2], wartosci[1], wartosci[3])
+        //viewModel.postAll(wartosci[0], wartosci[1], lamin, lomin, lamax, lomax)
 
 
         (view.findViewById<FloatingActionButton>(R.id.backFromAirplanesNearby)).setOnClickListener {
@@ -69,27 +69,57 @@ class AirplanesNearby : Fragment() {
 
     }
 
-        fun oblicz_wartosci(kom: Double, odle: Double, lamin: Double, lamax: Double, lomin: Double, lomax: Double): Array<Double> {
-            val zwracana = arrayOf(lamin, lamax, lomin, lomax)
-            var a = (270 - kom).absoluteValue
-
-            val stala = 600000
-
-            a = (180 - a).absoluteValue
-            zwracana[0] = (a*a*a)/stala
-
-            a = (180 - kom).absoluteValue
-            a = (180 - a).absoluteValue
-            zwracana[2] = (a*a*a)/stala
-
-            a = (90 - kom).absoluteValue
-            a = (180 - a).absoluteValue
-            zwracana[1] = (a*a*a)/stala
-
-            a = (360 - kom).absoluteValue
-            a = (180 - a).absoluteValue
-            zwracana[3] = ((a*a*a)/stala)
-            return zwracana
+    fun przesuniecie(kom: Double, kat: Double, latit: Double, longit: Double): Array<Double>{
+        var zwracana = arrayOf(latit, longit)
+        var prawo = true
+        var gora = true
+        var b1 = 0.0
+        var b2 = 0.0
+        var a = 0.0
+        if(kom > 0 && kom < 180){
+            val also = Math.abs(90 - kom).also { a = it }
         }
+        else{
+            val also = Math.abs(270 - kom).also { a = it }
+            prawo = false
+        }
+        b1 = 90 - a
+
+        if(kom > 270){
+            val also = Math.abs(360 - kom).also { a = it }
+        }
+        else if(kom < 90){
+            val also = Math.abs(90 - kom).also { a = it }
+        }
+        else {
+            val also = Math.abs(180 - kom).also { a = it }
+            gora = false
+        }
+        b2 = 90 - a
+
+        var par = 100
+        var zmiana = (90 - kat)/100
+
+        var dlugosc = 0.0
+        var szerokosc = 0.0
+
+        if(prawo == true){
+            dlugosc += b1/90 * zmiana
+        }
+        else{
+            dlugosc -= b1/90 * zmiana
+        }
+
+        if(gora == true){
+            szerokosc += b2/90 * zmiana
+        }
+        else{
+            szerokosc -= b2/90 * zmiana
+        }
+
+        zwracana[0] += szerokosc
+        zwracana[1] += dlugosc
+        return zwracana
+    }
 
 }
